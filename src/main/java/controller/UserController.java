@@ -127,6 +127,6 @@ public class UserController {
                 .collect(Collectors.joining("\n")));
     }
 
-    
+
 
 }

@@ -5,6 +5,8 @@ import org.w3c.dom.ls.LSOutput;
 import pl.sda.projketoop.model.Role;
 import pl.sda.projketoop.model.User;
 
+import java.sql.SQLOutput;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -31,7 +33,19 @@ public class Main {
         uc.getAllUsersWithStatus(true).forEach(System.out::println);
         System.out.println("Nieaktywni");
         uc.getAllUsersWithStatus(false).forEach(System.out::println);
-
+        System.out.println(uc.updateUserRoleById(2,Role.ROLE_ADMIN));
+        System.out.println(uc.updateUserRoleById(5,Role.ROLE_ADMIN));
+        System.out.println("admini: ");
+        System.out.println(uc.getAllUsersWithRole(Role.ROLE_ADMIN));
+        System.out.println("Ilość aktywnych uzytkowników: " + uc.countActiveUsers());
+        System.out.println("Ilosc Admin: " + uc.countAdmins());
+        uc.getAllusersOrderByRegistrationDateDesc().forEach(System.out::println);
+        System.out.println("posortowanie Aadmini: ");
+        uc.getAllAdminsOrderByEmailAsc().forEach(System.out::println);
+        System.out.println("Actywin admini posortowanii:");
+        uc.getAllActiveAdminsOrderByEmailAsc().forEach(System.out::println);
+        System.out.println("trzech pierwszych urzytkowników");
+        uc.getFirst3UsersOrderByRegistrationDateAsc().forEach(System.out::println);
 
     }
 }

@@ -5,11 +5,12 @@ import org.w3c.dom.ls.LSOutput;
 import pl.sda.projketoop.model.Role;
 import pl.sda.projketoop.model.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLOutput;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         /*User u1 = new User();
         User u2 = new User("Tomasz",
                 "Sytek",
@@ -46,6 +47,6 @@ public class Main {
         uc.getAllActiveAdminsOrderByEmailAsc().forEach(System.out::println);
         System.out.println("trzech pierwszych urzytkowników");
         uc.getFirst3UsersOrderByRegistrationDateAsc().forEach(System.out::println);
-
+        uc.printAdmins();
     }
 }

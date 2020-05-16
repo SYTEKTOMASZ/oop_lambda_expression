@@ -3,6 +3,13 @@ package pl.sda.projketoop.model;
 import java.time.LocalDateTime;
 
 public class User {
+
+
+
+
+    private static int idCounter =1;
+    private int userId;
+
     //prywatne pola klasowe ->
     private String name;
     private String lastName;
@@ -14,9 +21,13 @@ public class User {
 
 
     public User() {
+        this.userId = idCounter;
+        idCounter++;
     }
 
     public User(String name, String lastName, String email, String password) {
+        this.userId = idCounter;
+        idCounter++;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -26,7 +37,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

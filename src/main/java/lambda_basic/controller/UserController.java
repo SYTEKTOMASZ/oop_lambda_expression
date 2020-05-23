@@ -1,10 +1,9 @@
-package controller;
+package lambda_basic.controller;
 
 import data.UserData;
 import pl.sda.projketoop.model.Role;
 import pl.sda.projketoop.model.User;
 
-import javax.print.MultiDocPrintService;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

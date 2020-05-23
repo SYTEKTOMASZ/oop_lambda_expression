@@ -1,6 +1,6 @@
 package pl.sda.projketoop;
 
-import controller.UserController;
+import lambda_basic.controller.UserController;
 import org.w3c.dom.ls.LSOutput;
 import pl.sda.projketoop.model.Role;
 import pl.sda.projketoop.model.User;

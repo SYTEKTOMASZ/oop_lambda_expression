@@ -75,13 +75,14 @@ public class PizzaController {
     }
     // meetoda zwracajaca menu | nazwa pizzy | ostra lub lagodna | miesna lub vege | nazwa składnika1, ..., nazwa składnikaN | cena |
     public String formatedMenu(){
+        Pizza pizzaOfDay = getRandomPizza();
         return Arrays.stream(Pizza.values())
             .map(pizza -> String.format(
                     "| %20s | %8s | %8s | %5.2f zł | %100s |",
-                    pizza.getName(),
+                    pizza.equals(pizzaOfDay) ? pizza.getName() + "*"    : pizza.getName(),
                     pizza.getIngredients().stream().anyMatch(Ingredient::isSpicy) ? "ostra" : "łagodna",
                     pizza.getIngredients().stream().anyMatch(Ingredient::isMeat) ? "Normalna" : "vege",
-                    getPizzaPrice(pizza),
+                    pizza.equals(pizzaOfDay) ? getPizzaPrice(pizza)*0.8  :   getPizzaPrice(pizza),
                     pizza.getIngredients()
                     .stream()
                             .map(Ingredient::getName)
@@ -89,6 +90,11 @@ public class PizzaController {
                     )
             )
                 .collect(Collectors.joining("\n"));
+    }
+
+    public Pizza getRandomPizza(){
+        return Pizza.values()[new Random().nextInt(Pizza.values().length)];
+
     }
 
 
